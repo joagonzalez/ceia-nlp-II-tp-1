@@ -275,7 +275,7 @@ class Trainer():
 				self.scheduler.step()
 				accumulation_count = 0
 
-			losses.append(loss_for_logging)
+			losses.append(loss_for_logging.item()) 
 
 			if len(losses) % 10 == 0:
 				bar.set_description(f"loss {torch.mean(torch.stack(losses[-10:])).item():.5f}")
